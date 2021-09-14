@@ -1,0 +1,6 @@
+/.npm/
+/node_modules/
+/dist/impl
+/grafana/data/grafana/csv/
+/grafana/data/grafana/png/
+/grafana/data/grafana/grafana.db

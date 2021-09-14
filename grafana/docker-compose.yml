@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+    grafana:
+        container_name: grafana
+        image: grafana/grafana
+        restart: unless-stopped
+        #networks:
+        #    - webgateway  
+        ports:
+            - 3000:3000
+        env_file:
+            - "grafana.env"
+        user: "0"
+        volumes:
+            - ./data/grafana:/var/lib/grafana
+#networks:
+#    webgateway:
+#        external: true
+

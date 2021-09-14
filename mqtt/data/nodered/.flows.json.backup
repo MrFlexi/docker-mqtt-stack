@@ -1,0 +1,178 @@
+[
+    {
+        "id": "319b7292f16bb291",
+        "type": "tab",
+        "label": "Hello",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "88ae0b463fa53bf5",
+        "type": "mqtt-broker",
+        "name": "netcup",
+        "broker": "mqtt-broker",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9fe54b982594ad3f",
+        "type": "influxdb",
+        "hostname": "influxdb",
+        "port": "8086",
+        "protocol": "http",
+        "database": "mqtt",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://85.209.49.65:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "4823eea181b7c331",
+        "type": "mqtt in",
+        "z": "319b7292f16bb291",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "88ae0b463fa53bf5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "267133b6d8ae6e6e"
+            ]
+        ]
+    },
+    {
+        "id": "267133b6d8ae6e6e",
+        "type": "debug",
+        "z": "319b7292f16bb291",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7ce80c4aededcd03",
+        "type": "inject",
+        "z": "319b7292f16bb291",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "a1efb405a954761e"
+            ]
+        ]
+    },
+    {
+        "id": "a1efb405a954761e",
+        "type": "mqtt out",
+        "z": "319b7292f16bb291",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "88ae0b463fa53bf5",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f78cd3fdf43b2401",
+        "type": "influxdb out",
+        "z": "319b7292f16bb291",
+        "influxdb": "9fe54b982594ad3f",
+        "name": "influxdb",
+        "measurement": "test",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "JS",
+        "bucket": "ttn",
+        "x": 550,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "21939a42b383cbb8",
+        "type": "inject",
+        "z": "319b7292f16bb291",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "f78cd3fdf43b2401"
+            ]
+        ]
+    }
+]
