@@ -1,0 +1,26 @@
+version: "3.6"
+
+services:
+    influxdb:
+        container_name: influxdb
+        image: influxdb:1.8.9-alpine
+        restart: unless-stopped
+        ports:
+            - "8086:8086"                    
+        volumes:
+            - ./data/:/var/lib/influxdb
+            - ./data/:/etc/influxdb 
+        environment:
+            - INFLUXDB_DB=ttn
+            - INFLUXDB_USER=MrFlexi
+            - INFLUXDB_ADMIN_ENABLED=true
+            - INFLUXDB_ADMIN_USER=admin
+            - INFLUXDB_ADMIN_PASSWORD=nc:13Arequipa   
+            # Determines whether HTTP endpoint is enabled.
+            - INFLUXDB_HTTP_ENABLED=true
+            - INFLUXDB_HTTP_FLUX_ENABLED=true    
+networks:
+    default:
+      external: true       
+      name: flask_server_backend
+
