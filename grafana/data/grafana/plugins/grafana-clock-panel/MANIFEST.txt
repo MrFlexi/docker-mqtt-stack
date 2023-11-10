@@ -8,8 +8,8 @@ Hash: SHA512
   "signedByOrg": "grafana",
   "signedByOrgName": "Grafana Labs",
   "plugin": "grafana-clock-panel",
-  "version": "2.1.2",
-  "time": 1672825175173,
+  "version": "2.1.3",
+  "time": 1693812322724,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "CHANGELOG.md": "d9183b9e669b1ee94da93626a0f99d874b07c71adbe5b8a8213815f9e7c76f7f",
@@ -20,20 +20,20 @@ Hash: SHA512
     "img/screenshot-clock-options.png": "55f428cc45f65e53a118db2b969353cd01e0d2f879848b1df503750ed27007cf",
     "img/screenshot-clocks.png": "4dcf3c3d303e63239689df853b80ef79557eaf5496679400f362e68f57f60577",
     "img/screenshot-showcase.png": "43c6520f1efa3343d839b9462a22ce962d2b041f2d5d9c743a8603caa8392a71",
-    "module.js": "f38c235449ccbf82449117334846c961dc54bce817d591bfe69b56b006b6f7c7",
-    "module.js.LICENSE.txt": "a289e86d118eb1e42b697e70dbd8f06f268116074d4bbb6f4e4e92075b57d9b6",
-    "module.js.map": "b193cc7ad3d30fa2b00548d0f4e5f707f55f67b31ec51e753e24c68af8a6b25b",
-    "plugin.json": "8b27798514900749f5e167b83dcbf04d1fcf9d8743db991eca3e66f4de676d46"
+    "module.js": "5d12eb5803207471c0789d96630f458080d9e489cdc3bbe6a97746b26ae1308c",
+    "module.js.LICENSE.txt": "71f2699fd278800e3b685a3232025864b829081d5c892e6a3cb66b3e3fdf0cbf",
+    "module.js.map": "bde8dbe97e09f9b27d097d56c3044d0ba3777fa00d21cc74e3f1e4e6ef015fa8",
+    "plugin.json": "59d2e512cb90c96d7b13d24853dc6a71b8ea459ccce564ebff983983905c417e"
   }
 }
 -----BEGIN PGP SIGNATURE-----
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrcEARMKAAYFAmO1SVcAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm584tAgdXDq16leSNU2I39PFzvJ2LbJxxFlOBiNlorN0kvFrrKGLzm+e7
-yPVtyVSnf1Z+Sq6h7Z5vdUe/oxNAaZqrt40HGgII0aYnbFl44kqOUhrqqCj3
-mpGsVpftfYV5Lel8bn82wPK8WiCa6/ktdRyXpcNMwD0mn6lMOWVCWwDIxyFw
-LQdthUE=
-=UQq8
+wrgEARMKAAYFAmT1hmMAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5yUTAgiBc2PRuVgzMyUgajYaG8hqY+mA9z2aLk1u01UcKV74UBz+8SG/
+yGYVAu1m+W/+GQqVOnA5898t72R2uggNcBlodgIJAZ4uJMdRkU5vV025SXQY
+Eh8BD3n+Cdcohd6WW2dtCRQjqv/VuzmsHTXQcXFwr1tAwJcow28+6WXgx7sa
+FSW5l4ge
+=qxzp
 -----END PGP SIGNATURE-----

