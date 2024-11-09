@@ -1,10 +1,21 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "2.0.6",
+        "version": "4.0.5",
         "local": false,
         "user": false,
         "nodes": {
+            "junction": {
+                "name": "junction",
+                "types": [
+                    "junction"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/05-junction.js"
+            },
             "inject": {
                 "name": "inject",
                 "types": [
@@ -64,7 +75,8 @@
                 "name": "link",
                 "types": [
                     "link in",
-                    "link out"
+                    "link out",
+                    "link call"
                 ],
                 "enabled": true,
                 "local": false,
@@ -82,6 +94,17 @@
                 "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/90-comment.js"
+            },
+            "global-config": {
+                "name": "global-config",
+                "types": [
+                    "global-config"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/91-global-config.js"
             },
             "unknown": {
                 "name": "unknown",

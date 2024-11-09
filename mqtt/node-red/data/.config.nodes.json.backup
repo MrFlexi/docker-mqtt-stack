@@ -744,5 +744,79 @@
                 "file": "/data/node_modules/node-red-contrib-xterm/xterm_in.js"
             }
         }
+    },
+    "node-red-contrib-tasmota": {
+        "name": "node-red-contrib-tasmota",
+        "version": "0.9.12",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "tasmota-mqtt-broker": {
+                "name": "tasmota-mqtt-broker",
+                "types": [
+                    "tasmota-mqtt-broker"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/mqtt_broker.js"
+            },
+            "Tasmota switch": {
+                "name": "Tasmota switch",
+                "types": [
+                    "Tasmota Switch"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/switch.js"
+            },
+            "Tasmota sensor": {
+                "name": "Tasmota sensor",
+                "types": [
+                    "Tasmota Sensor"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/sensor.js"
+            },
+            "Tasmota light": {
+                "name": "Tasmota light",
+                "types": [
+                    "Tasmota Light"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/light.js"
+            },
+            "Tasmota button": {
+                "name": "Tasmota button",
+                "types": [
+                    "Tasmota Button"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/button.js"
+            },
+            "Tasmota generic": {
+                "name": "Tasmota generic",
+                "types": [
+                    "Tasmota Generic"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-tasmota",
+                "file": "/data/node_modules/node-red-contrib-tasmota/nodes/generic.js"
+            }
+        }
     }
 }
